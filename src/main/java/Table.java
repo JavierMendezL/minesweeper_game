@@ -20,8 +20,8 @@ public class Table {
   }
 
   public boolean isValid(){
-    return true;
+    return (row >= 8 && row <= 24) || (col >= 8 && col <= 32);
   }
-
-
+//    int mul=row*col;
+//assert mines >=1 & mines <= 1/3*mul;
 }
