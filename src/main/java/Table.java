@@ -5,6 +5,7 @@ public class Table {
 
   private int row;
   private int col;
+  private int mines;
 
   public Table(int row, int col, int mines){
     this.row=row;
@@ -19,9 +20,19 @@ public class Table {
     return col;
   }
 
-  public boolean isValid(){
+  public int getMines(){
+    return 0;
+  }
+
+  public boolean isValidGrid(){
     return (row >= 8 && row <= 24) || (col >= 8 && col <= 32);
+  }
+  public boolean isValidMines(){
+    return true;
   }
 //    int mul=row*col;
 //assert mines >=1 & mines <= 1/3*mul;
 }
+
+
+

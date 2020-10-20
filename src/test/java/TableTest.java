@@ -15,7 +15,14 @@ public class TableTest extends TestCase{
   }
   public void testValidateGrid(){ //assegurar que el row y el col no passen de sus rangos
     Table grid = new Table(7, 33, 10);
-    assert !grid.isValid();
+    assert !grid.isValidGrid();
+  }
+
+  public void testValidateMines(){
+    Table grid = new Table (10, 10, 31);
+    Table grid2 = new Table (8, 8, 21);
+    assert !grid.isValidMines();
+    assert !grid2.isValidMines();
   }
 
 }
