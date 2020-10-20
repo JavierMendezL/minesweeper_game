@@ -33,6 +33,8 @@ public class Table {
     int result = row * col / 3;
     return mines < 1 || mines >= result;
   }
+
+//getMinecells
 }
 
 
