@@ -1,5 +1,4 @@
 import junit.framework.TestCase;
-import org.junit.Test;
 
 public class TableTest extends TestCase{
 
@@ -19,10 +18,12 @@ public class TableTest extends TestCase{
   }
 
   public void testValidateMines(){
-    Table grid = new Table (10, 10, 31);
+    Table grid = new Table (10, 10, 33);
     Table grid2 = new Table (8, 8, 21);
-    assert !grid.isValidMines();
-    assert !grid2.isValidMines();
+    assertEquals(33, grid.getMines());
+    assertEquals(21, grid2.getMines());
+    assert grid.isValidMines();
+    assert grid2.isValidMines();
   }
 
 }
