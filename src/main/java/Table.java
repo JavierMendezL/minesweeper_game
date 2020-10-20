@@ -1,6 +1,7 @@
 public class Table {
   //min row i col 8
   //max rom=24 max col=32
+  //max mines = 1/3(row*col)
 
   private int row;
   private int col;
@@ -17,5 +18,10 @@ public class Table {
   public int getCol(){
     return col;
   }
+
+  public boolean isValid(){
+    return true;
+  }
+
 
 }
