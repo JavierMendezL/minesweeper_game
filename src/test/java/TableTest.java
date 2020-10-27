@@ -50,4 +50,11 @@ public class TableTest extends TestCase {
     System.out.println(Arrays.toString(ListofMines)); //TODO: borrar sout
   }
 
+  public void testIsCellEmpty(){
+
+  }
+
+ /* bombMap     = new HashMap<Integer, MMWeeper.position>();
+  boardMap    = new HashMap<Integer, Map<Integer,mweeperField>>();*/
+
 }
