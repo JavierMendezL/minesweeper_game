@@ -10,9 +10,10 @@ public class Board {
   private int mines;
 
   public Board(int rows, int cols) {
+    this.rows = rows;
+    this.cols = cols;
   }
   public Board(){};
-
 
   public void setRows(int i) {
     this.rows = i;
@@ -66,6 +67,17 @@ public class Board {
   }
 
   public int[] createAllCells() {
+    int[] minesPositions = getRandomMinesPosition();
+
+    for (int i = 0; i < minesPositions.length; i++) {
+
+
+    }
+
+    return new int[]{1};
+  }
+
+  public int[] getCellAround() {
     return new int[]{1};
   }
 }
