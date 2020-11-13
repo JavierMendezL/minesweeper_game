@@ -1,26 +1,25 @@
-import java.security.InvalidParameterException;
 
 public class Board {
 
   private int rows;
   private int cols;
 
-  public Board(int rows, int cols) {
-
-
-  }
-
-
   public void setRows(int i) {
     this.rows = i;
+    if (i<=0){
+      this.rows = -1;
+    }
   }
 
   public void setCols(int i) {
-    assert i>=0;
     this.cols = i;
+    if (i<=0){
+      this.cols = -1;
+    }
   }
 
   public int getTotalCellNumber() {
+    if (cols <= 0 || rows <= 0) return -1;
     return rows*cols;
   }
 }

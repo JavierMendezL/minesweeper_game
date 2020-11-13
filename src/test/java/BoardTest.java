@@ -5,7 +5,7 @@ public class BoardTest extends TestCase{
   Board board;
   @Before
   public void setUp(){
-    board = new Board(5,5);
+    board = new Board();
   }
 
 
@@ -20,7 +20,7 @@ public class BoardTest extends TestCase{
   public void testAssignRowsColsToBoardFails(){
     //-1 for error.
     //Test with negative, null or zero cols/rows
-    Board testBoard= new Board(0,0);
+    Board testBoard= new Board();
 
     testBoard.setCols(0);
     assertEquals(-1, testBoard.getTotalCellNumber());
