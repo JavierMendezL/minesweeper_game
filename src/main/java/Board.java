@@ -33,6 +33,9 @@ public class Board {
     if(getTotalCellNumber()/3 < 1){
       mines = -1;
     }
+  }
 
+  public int[] getMinesPosition() {
+    return new int[]{1};
   }
 }

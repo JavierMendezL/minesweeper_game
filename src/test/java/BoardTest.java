@@ -57,6 +57,14 @@ public class BoardTest extends TestCase{
     assertEquals(-1, board.getTotalMines());
   }
 
+  public void testCreateMinesPosition(){
+    board.setRows(5);
+    board.setCols(5);
+    board.createMines();
+    int[] minesAssigment = board.getMinesPosition();
+    assert minesAssigment.length == board.getTotalMines();
+
+  }
 
 
 
