@@ -3,6 +3,7 @@ public class Board {
 
   private int rows;
   private int cols;
+  private int mines;
 
   public void setRows(int i) {
     this.rows = i;
@@ -24,10 +25,14 @@ public class Board {
   }
 
   public int getTotalMines() {
-    return 0;
+    return mines;
   }
 
   public void createMines() {
+    mines = getTotalCellNumber()/3;
+    if(getTotalCellNumber()/3 < 1){
+      mines = -1;
+    }
 
   }
 }

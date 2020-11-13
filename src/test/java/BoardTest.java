@@ -44,11 +44,17 @@ public class BoardTest extends TestCase{
 
   public void testTotalMineNumber(){
     //Mines ratio should be (cols*row)/3
-    // this means every combination of rows*cols that's less than 3 should return -1
+    // this means every combination of rows*cols that's less than 1 should return -1
     board.setRows(5);
     board.setCols(5);
     board.createMines();
     assertEquals(8, board.getTotalMines());
+
+
+    board.setRows(2);
+    board.setCols(1);
+    board.createMines();
+    assertEquals(-1, board.getTotalMines());
   }
 
 
