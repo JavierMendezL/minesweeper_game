@@ -40,8 +40,8 @@ public class Board {
   }
 
   public int[] getMinesPosition() {
-    int[] minesPosition;
     try {
+      int[] minesPosition = new int[getTotalMines()];
       int []allCells = new int[getTotalCellNumber()];
       List<Integer> integerList = new ArrayList<>();
       for (int i = 0; i < allCells.length; i++) {
@@ -51,10 +51,9 @@ public class Board {
 
       minesPosition =  integerList.stream().mapToInt(i-> i).toArray();
       return Arrays.copyOfRange(minesPosition, 0, getTotalMines());
+
     } catch (NegativeArraySizeException exception) {
       return new int[]{-1};
     }
-
   }
-
 }

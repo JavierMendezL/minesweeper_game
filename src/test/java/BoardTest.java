@@ -1,10 +1,8 @@
 import junit.framework.TestCase;
 import org.junit.Before;
 
-import java.net.Inet4Address;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class BoardTest extends TestCase{
   Board board;
@@ -69,8 +67,14 @@ public class BoardTest extends TestCase{
     int[] minesAssigment = board.getMinesPosition();
     System.out.println(Arrays.toString(minesAssigment));
     assert minesAssigment.length == board.getTotalMines();
+
+    board.setRows(1);
+    board.setCols(2);
+    board.createMines();
+    minesAssigment = board.getMinesPosition();
+    System.out.println(Arrays.toString(minesAssigment));
+    assert Arrays.equals(new int[]{-1}, minesAssigment);
+
   }
-
-
 
 }
