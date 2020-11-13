@@ -9,6 +9,11 @@ public class Board {
   private int cols;
   private int mines;
 
+  public Board(int rows, int cols) {
+  }
+  public Board(){};
+
+
   public void setRows(int i) {
     this.rows = i;
     if (i <= 0) {
@@ -39,7 +44,7 @@ public class Board {
     }
   }
 
-  public int[] getMinesPosition() {
+  public int[] getRandomMinesPosition() {
     try {
       int[] minesPosition = new int[getTotalMines()];
       int []allCells = new int[getTotalCellNumber()];
@@ -55,5 +60,12 @@ public class Board {
     } catch (NegativeArraySizeException exception) {
       return new int[]{-1};
     }
+  }
+
+  public void setMinesPosition(int[] minesPosition) {
+  }
+
+  public int[] createAllCells() {
+    return new int[]{1};
   }
 }
