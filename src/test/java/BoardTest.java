@@ -32,10 +32,23 @@ public class BoardTest extends TestCase{
     testBoard.setRows(-1);
     assertEquals(-1, testBoard.getTotalCellNumber());
 
-    testBoard.setCols(3);
-    testBoard.setRows(5);
-    assertEquals(15, testBoard.getTotalCellNumber());
+    testBoard.setCols(0);
+    testBoard.setRows(0);
+    assertEquals(-1, testBoard.getTotalCellNumber());
 
+    testBoard.setCols(1);
+    testBoard.setRows(1);
+    assertEquals(1, testBoard.getTotalCellNumber());
+
+  }
+
+  public void testTotalMineNumber(){
+    //Mines ratio should be (cols*row)/3
+    // this means every combination of rows*cols that's less than 3 should return -1
+    board.setRows(5);
+    board.setCols(5);
+    board.createMines();
+    assertEquals(8, board.getTotalMines());
   }
 
 

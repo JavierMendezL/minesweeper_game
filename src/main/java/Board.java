@@ -22,4 +22,12 @@ public class Board {
     if (cols <= 0 || rows <= 0) return -1;
     return rows*cols;
   }
+
+  public int getTotalMines() {
+    return 0;
+  }
+
+  public void createMines() {
+
+  }
 }
