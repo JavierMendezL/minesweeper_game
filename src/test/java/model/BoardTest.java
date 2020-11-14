@@ -128,6 +128,35 @@ public class BoardTest extends TestCase{
 
     positionsThatCanBeModified = board.getSurroundingPositions(7);
     assert Arrays.equals(new int[]{1, 2, 3, 6, 8, 11, 12, 13}, positionsThatCanBeModified);
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Testing 9 positions from 1 board
+    board = new Board (6,4);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(0); //topLeft
+    assert Arrays.equals(new int[]{-1, -1, -1, 1, -1, -1, 4, 5}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(1); //top
+    assert Arrays.equals(new int[]{-1, -1, -1, 0, 2, 4, 5, 6}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(3); //topRight
+    assert Arrays.equals(new int[]{-1, -1, -1, 2, -1, 6, 7, -1}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(4); //Left
+    assert Arrays.equals(new int[]{-1, 0, 1, -1, 5, -1, 8, 9}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(9); //Center
+    assert Arrays.equals(new int[]{4, 5, 6, 8, 10, 12, 13, 14}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(15); //Right
+    assert Arrays.equals(new int[]{10, 11, -1, 14, -1, 18, 19, -1}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(20); //bottomLeft
+    assert Arrays.equals(new int[]{-1, 16, 17, -1, 21, -1, -1, -1}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(22); //bottom
+    assert Arrays.equals(new int[]{17, 18, 19, 21, 23, -1, -1, -1}, positionsThatCanBeModified);
+
+    positionsThatCanBeModified = board.getSurroundingPositions(23); //bottomRight
+    assert Arrays.equals(new int[]{18, 19, -1, 22, -1, -1, -1, -1}, positionsThatCanBeModified);
 
     board = new Board(3,5);
     positionsThatCanBeModified = board.getSurroundingPositions(4);
