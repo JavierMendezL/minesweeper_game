@@ -110,10 +110,20 @@ public class BoardTest extends TestCase{
     board.createMines(0);
     results = board.getTotalMines();
     assertEquals(-1,results);
+  }
 
+  public void testCheckIfSurroundingValuesAreCorrect(){
+    //{topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight}
+    //{0      ,1   , 2       , 3   , 4    , 5         , 6     , 7          }
+    Board board = new Board(9, 9);
 
+    int [] positionsThatCanBeModified = board.getSurroundingPositions(0); //0 is top-left : {4,6,7} -->valid in 9x9 board
+
+    assert Arrays.equals(new int[]{-1, -1, -1, -1 ,1, -1, 9, 10}, positionsThatCanBeModified);
 
 
 
   }
+
+
 }

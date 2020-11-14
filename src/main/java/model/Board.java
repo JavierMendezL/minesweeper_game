@@ -95,28 +95,22 @@ public class Board {
       mineSurrounding = getCellAroundPosition(minePosition);
       if (minePosition%rows == 0){//left side
         if (minePosition == 0){//top-left
-          if (!modified){
-            cells[mineSurrounding[4]].incrementValue();
-            cells[mineSurrounding[6]].incrementValue();
-            cells[mineSurrounding[7]].incrementValue();
-            modified = true;
-          }
+          cells[mineSurrounding[4]].incrementValue();
+          cells[mineSurrounding[6]].incrementValue();
+          cells[mineSurrounding[7]].incrementValue();
+          modified = true;
         }else if((minePosition + rows)==(rows*cols)){//bottom-left
-          if (!modified){
-            cells[mineSurrounding[1]].incrementValue();
-            cells[mineSurrounding[2]].incrementValue();
-            cells[mineSurrounding[4]].incrementValue();
-            modified = true;
-          }
+          cells[mineSurrounding[1]].incrementValue();
+          cells[mineSurrounding[2]].incrementValue();
+          cells[mineSurrounding[4]].incrementValue();
+          modified = true;
         }else{//left
-          if (!modified){
-            cells[mineSurrounding[1]].incrementValue();
-            cells[mineSurrounding[2]].incrementValue();
-            cells[mineSurrounding[4]].incrementValue();
-            cells[mineSurrounding[6]].incrementValue();
-            cells[mineSurrounding[7]].incrementValue();
-            modified = true;
-          }
+          cells[mineSurrounding[1]].incrementValue();
+          cells[mineSurrounding[2]].incrementValue();
+          cells[mineSurrounding[4]].incrementValue();
+          cells[mineSurrounding[6]].incrementValue();
+          cells[mineSurrounding[7]].incrementValue();
+          modified = true;
         }
       }
       if ((minePosition+1)%rows == 0){//right side
@@ -152,16 +146,16 @@ public class Board {
           cells[mineSurrounding[5]].incrementValue();
           cells[mineSurrounding[6]].incrementValue();
           cells[mineSurrounding[7]].incrementValue();
-          modified = true;
+          //modified = true;
         }
       }else if(minePosition>=(rows*cols-1)-rows){ //bottom
         if (!modified){
+          cells[mineSurrounding[0]].incrementValue();
+          cells[mineSurrounding[1]].incrementValue();
+          cells[mineSurrounding[2]].incrementValue();
           cells[mineSurrounding[3]].incrementValue();
           cells[mineSurrounding[4]].incrementValue();
-          cells[mineSurrounding[5]].incrementValue();
-          cells[mineSurrounding[6]].incrementValue();
-          cells[mineSurrounding[7]].incrementValue();
-          modified = true;
+          //modified = true;
         }
 
       }else{//regular
@@ -174,10 +168,12 @@ public class Board {
           cells[mineSurrounding[5]].incrementValue();
           cells[mineSurrounding[6]].incrementValue();
           cells[mineSurrounding[7]].incrementValue();
-          modified = true;
+          //modified = true;
         }
       }
     }
+
+
 
     int[] allCells =  new int[cells.length];
     for (int i = 0; i < allCells.length; i++) {
@@ -201,4 +197,7 @@ public class Board {
   }
 
 
+  public int[] getSurroundingPositions(int i) {
+    return new int[] {1};
+  }
 }
