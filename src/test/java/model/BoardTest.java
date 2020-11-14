@@ -132,7 +132,7 @@ public class BoardTest extends TestCase{
     board = new Board (6,4);
 
     positionsThatCanBeModified = board.getSurroundingPositions(0); //topLeft
-    assert Arrays.equals(new int[]{-1, -1, -1, 1, -1, -1, 4, 5}, positionsThatCanBeModified);
+    assert Arrays.equals(new int[]{-1, -1, -1, -1, 1, -1, 4, 5}, positionsThatCanBeModified);
 
     positionsThatCanBeModified = board.getSurroundingPositions(1); //top
     assert Arrays.equals(new int[]{-1, -1, -1, 0, 2, 4, 5, 6}, positionsThatCanBeModified);
@@ -157,10 +157,6 @@ public class BoardTest extends TestCase{
 
     positionsThatCanBeModified = board.getSurroundingPositions(23); //bottomRight
     assert Arrays.equals(new int[]{18, 19, -1, 22, -1, -1, -1, -1}, positionsThatCanBeModified);
-
-    board = new Board(3,5);
-    positionsThatCanBeModified = board.getSurroundingPositions(4);
-    assert Arrays.equals(new int[]{-1, -1, -1, 3, -1, 8, 9, -1}, positionsThatCanBeModified);
 
   }
 
