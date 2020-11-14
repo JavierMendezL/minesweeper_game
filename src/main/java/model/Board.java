@@ -154,14 +154,36 @@ public class Board {
     } else if (position >= (rows * cols - 1) - cols) { //bottom
       return new int[]{mineSurrounding[0], mineSurrounding[1], mineSurrounding[2], mineSurrounding[3], mineSurrounding[4], -1, -1, -1};
 
-
     } else {//regular
       return new int[]{mineSurrounding[0], mineSurrounding[1], mineSurrounding[2], mineSurrounding[3], mineSurrounding[4], mineSurrounding[5], mineSurrounding[6], mineSurrounding[7]};
-
     }
   }
 
-  public boolean[] expandCell(int i) {
-    return new boolean[]{false};
+  public boolean[] expandCell(int positionToExpand) {
+
+    boolean[] cellBoard = new boolean[cells.length];
+    expandCellRecursive(positionToExpand, cellBoard);
+    return cellBoard;
+  }
+
+  public void expandCellRecursive(int positionToExpand, boolean[] cellBoard ){
+    int [] surroundingPositions = getSurroundingPositions(positionToExpand);
+    for (int surroundingPosition: surroundingPositions) {
+      if (surroundingPosition != -1){
+        if(cells[surroundingPosition].getValue() == 0){
+          if (!cellBoard[surroundingPosition]){
+            cellBoard[surroundingPosition] = true;
+            expandCellRecursive(surroundingPosition, cellBoard);
+          }
+        }else{
+          if (cells[surroundingPosition].getValue() > 0){
+            if (!cellBoard[surroundingPosition]) {
+              cellBoard[surroundingPosition] = true;
+            }
+          }
+        }
+      }
+    }
   }
 }
+

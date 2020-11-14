@@ -68,14 +68,12 @@ public class BoardTest extends TestCase {
     board.setCols(5);
     board.createMines();
     int[] minesAssigment = board.getRandomMinesPosition();
-    System.out.println(Arrays.toString(minesAssigment));
     assert minesAssigment.length == board.getTotalMines();
 
     board.setRows(1);
     board.setCols(2);
     board.createMines();
     minesAssigment = board.getRandomMinesPosition();
-    System.out.println(Arrays.toString(minesAssigment));
     assert Arrays.equals(new int[]{-1}, minesAssigment);
   }
 
@@ -83,7 +81,6 @@ public class BoardTest extends TestCase {
   public void testCreateAllCells() {
     board = new Board(5, 5);
     board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
-    //int[] expectedCells = new int[]{2, -1, 3, 1, 1, 2, -1, 3, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1};
     int[] results = board.setNumberMinesOnNeighbours();
     assert Arrays.equals(new int[]{2, -1, 3, 1, 1, 2, -1, 4, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1}, results);
   }
@@ -169,23 +166,33 @@ public class BoardTest extends TestCase {
   public void testExpandCell() {
     board = new Board(8, 8);
     board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
-    int[] completedBoard = board.setNumberMinesOnNeighbours();
-    System.out.println(Arrays.toString(completedBoard));
-    boolean[] expandedBoardResult = new boolean[completedBoard.length];
-    for (int i = 0; i < completedBoard.length; i++) {
-      if (completedBoard[i] == 0) {
-        expandedBoardResult[i] = true;
-      }
-    }
-    System.out.println(Arrays.toString(expandedBoardResult));
+    board.setNumberMinesOnNeighbours();
+    /*boolean[] expected = new boolean[]{
+        false, false, false, false, false, false, false, false,
+        false, false, false, false, false, true, true, true,
+        false, false, false, false, false, true, true, true,
+        false, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true};
 
+
+    System.out.println("N |EXPECTED |  OUTPUT");
+    for (int i = 0; i < expandedBoard.length; i++) {
+      System.out.println(i+" | " + expected[i] + " | " + expandedBoard[i]);
+
+    }*/
     boolean[] expandedBoard = board.expandCell(22);
-
-    assert Arrays.equals(new boolean[]{false, false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false, false, true, true, false, false,
-        false, false, false, false, true, true, false, false, true, true, true, true, true, true, true, true, true,
-        true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true,
-        true, true, true}, expandedBoard);
+    assert Arrays.equals(new boolean[]{
+        false, false, false, false, false, false, false, false,
+        false, false, false, false, false, true, true, true,
+        false, false, false, false, false, true, true, true,
+        false, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true}, expandedBoard);
 
   }
 
