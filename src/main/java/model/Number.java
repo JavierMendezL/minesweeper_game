@@ -3,6 +3,7 @@ package model;
 public class Number implements CellState{
   Cell cell;
   private int value;
+
   public void setCell(Cell cell){
     this.cell = cell;
   }

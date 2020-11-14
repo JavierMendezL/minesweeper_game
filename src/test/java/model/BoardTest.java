@@ -207,7 +207,7 @@ public class BoardTest extends TestCase {
         false, true, true, true,
         false, true, true, true}, expandedBoard1);
 
-    /*board = new Board(6, 4);
+    board = new Board(6, 4);
     board.setMinesPosition(new int[]{1, 4, 5});
     board.setNumberMinesOnNeighbours();
     boolean[] expandedBoard2 = board.expandCell(0);
@@ -217,7 +217,7 @@ public class BoardTest extends TestCase {
         false, false, false, false,
         false, false, false, false,
         false, false, false, false,
-        false, false, false, false}, expandedBoard2);*/
+        false, false, false, false}, expandedBoard2);
 
     board = new Board(6, 4);
     board.setMinesPosition(new int[]{2, 6, 8, 9});
@@ -231,7 +231,7 @@ public class BoardTest extends TestCase {
         false, false, false, false,
         false, false, false, false}, expandedBoard3);
 
-   /* board = new Board(6, 4);
+   board = new Board(6, 4);
     board.setMinesPosition(new int[]{13, 20, 21, 22, 23});
     board.setNumberMinesOnNeighbours();
     boolean[] expandedBoard4 = board.expandCell(17);
@@ -241,16 +241,16 @@ public class BoardTest extends TestCase {
         true, true, true, false,
         true, false, true, false,
         true, true, true, true,
-        false, false, false, false}, expandedBoard4);*/
+        false, false, false, false}, expandedBoard4);
 
-    /*board = new Board(3, 3);
+    board = new Board(3, 3);
     board.setMinesPosition(new int[]{0, 4, 5});
     board.setNumberMinesOnNeighbours();
     boolean[] expandedBoard5 = board.expandCell(8);             //Pone el 8 a false (es el que hemos clicado)
     assert Arrays.equals(new boolean[]{
         false, false, false,
         false, false, false,
-        false, true, true}, expandedBoard5);*/
+        false, true, true}, expandedBoard5);
 
     board = new Board(5, 5);
     board.setMinesPosition(new int[]{20});

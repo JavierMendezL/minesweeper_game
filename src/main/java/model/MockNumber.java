@@ -6,6 +6,7 @@ public class MockNumber implements CellState{
   Number number;
 
   private int value;
+
   public void setCell(Cell cell){
     this.cell = cell;
   }

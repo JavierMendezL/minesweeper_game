@@ -5,7 +5,8 @@ public class MockMines implements CellState{
   Mine mine;
   CellState state;
 
-  private int v;
+  private int value;
+
   @Override
   public void setCell(Cell cell) {
     this.cell = cell;
@@ -13,7 +14,7 @@ public class MockMines implements CellState{
 
   @Override
   public int getValue() {
-    return -1;
+    return value;
   }
 
   @Override
