@@ -6,15 +6,16 @@ import org.junit.Before;
 import java.util.Arrays;
 
 
-public class BoardTest extends TestCase{
+public class BoardTest extends TestCase {
   Board board;
+
   @Before
-  public void setUp(){
+  public void setUp() {
     board = new Board();
   }
 
 
-  public void testAssignRowsColsToBoard(){
+  public void testAssignRowsColsToBoard() {
     board.setRows(5);
     board.setCols(5);
     int totalCellNumber = board.getTotalCellNumber();
@@ -22,10 +23,10 @@ public class BoardTest extends TestCase{
 
   }
 
-  public void testAssignRowsColsToBoardFails(){
+  public void testAssignRowsColsToBoardFails() {
     //-1 for error.
     //Test with negative, null or zero cols/rows
-    Board testBoard= new Board();
+    Board testBoard = new Board();
 
     testBoard.setCols(0);
     assertEquals(-1, testBoard.getTotalCellNumber());
@@ -47,7 +48,7 @@ public class BoardTest extends TestCase{
 
   }
 
-  public void testTotalMineNumber(){
+  public void testTotalMineNumber() {
     //Mines ratio should be (cols*row)/3
     // this means every combination of rows*cols that's less than 1 should return -1
     board.setRows(5);
@@ -62,7 +63,7 @@ public class BoardTest extends TestCase{
     assertEquals(-1, board.getTotalMines());
   }
 
-  public void testCreateMinesPosition(){
+  public void testCreateMinesPosition() {
     board.setRows(5);
     board.setCols(5);
     board.createMines();
@@ -79,57 +80,57 @@ public class BoardTest extends TestCase{
   }
 
 
-  public void testCreateAllCells(){
-    board = new Board(5,5);
-    board.setMinesPosition(new int[]{1,6,8,12,16,19,20,24});
+  public void testCreateAllCells() {
+    board = new Board(5, 5);
+    board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
     //int[] expectedCells = new int[]{2, -1, 3, 1, 1, 2, -1, 3, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1};
     int[] results = board.setNumberMinesOnNeighbours();
-    assert  Arrays.equals(new int[]{2, -1, 3, 1, 1, 2, -1, 4, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1}, results);
+    assert Arrays.equals(new int[]{2, -1, 3, 1, 1, 2, -1, 4, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1}, results);
   }
 
 
-  public void testGettingPositionAroundValues(){
+  public void testGettingPositionAroundValues() {
     board.setCols(3);
     board.setRows(3);
-    int [] result = board.getCellAroundPosition(4);
-    assert Arrays.equals(new int[]{0,1,2,3,5,6,7,8}, result);
+    int[] result = board.getCellAroundPosition(4);
+    assert Arrays.equals(new int[]{0, 1, 2, 3, 5, 6, 7, 8}, result);
 
   }
 
-  public void testCreatingCustomMineNumber(){
+  public void testCreatingCustomMineNumber() {
     Board board = new Board(10, 10);
     board.createMines(10);
     int results = board.getTotalMines();
-    assertEquals(10,results);
+    assertEquals(10, results);
 
 
     board.createMines(-4);
     results = board.getTotalMines();
-    assertEquals(-1,results);
+    assertEquals(-1, results);
 
     board.createMines(0);
     results = board.getTotalMines();
-    assertEquals(-1,results);
+    assertEquals(-1, results);
   }
 
-  public void testCheckIfSurroundingValuesAreCorrect(){
+  public void testCheckIfSurroundingValuesAreCorrect() {
     //{topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight}
     //{0      ,1   , 2       , 3   , 4    , 5         , 6     , 7          }
     //{0, 1, 2, 3, 4, 5, 6, 7}
     Board board = new Board(9, 9);
 
-    int [] positionsThatCanBeModified = board.getSurroundingPositions(0); //0 is top-left : {4,6,7} -->valid in 9x9 board
+    int[] positionsThatCanBeModified = board.getSurroundingPositions(0); //0 is top-left : {4,6,7} -->valid in 9x9 board
 
-    assert Arrays.equals(new int[]{-1, -1, -1, -1 ,1, -1, 9, 10}, positionsThatCanBeModified);
+    assert Arrays.equals(new int[]{-1, -1, -1, -1, 1, -1, 9, 10}, positionsThatCanBeModified);
 
-    board = new Board(3,5);
+    board = new Board(3, 5);
     positionsThatCanBeModified = board.getSurroundingPositions(4);
     assert Arrays.equals(new int[]{-1, -1, -1, 3, -1, 8, 9, -1}, positionsThatCanBeModified);
 
     positionsThatCanBeModified = board.getSurroundingPositions(7);
     assert Arrays.equals(new int[]{1, 2, 3, 6, 8, 11, 12, 13}, positionsThatCanBeModified);
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Testing 9 positions from 1 board
-    board = new Board (6,4);
+    board = new Board(6, 4);
 
     positionsThatCanBeModified = board.getSurroundingPositions(0); //topLeft
     assert Arrays.equals(new int[]{-1, -1, -1, -1, 1, -1, 4, 5}, positionsThatCanBeModified);
@@ -157,6 +158,34 @@ public class BoardTest extends TestCase{
 
     positionsThatCanBeModified = board.getSurroundingPositions(23); //bottomRight
     assert Arrays.equals(new int[]{18, 19, -1, 22, -1, -1, -1, -1}, positionsThatCanBeModified);
+
+    board = new Board(3, 5);
+    positionsThatCanBeModified = board.getSurroundingPositions(4);
+    assert Arrays.equals(new int[]{-1, -1, -1, 3, -1, 8, 9, -1}, positionsThatCanBeModified);
+
+  }
+
+
+  public void testExpandCell() {
+    board = new Board(8, 8);
+    board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
+    int[] completedBoard = board.setNumberMinesOnNeighbours();
+    System.out.println(Arrays.toString(completedBoard));
+    boolean[] expandedBoardResult = new boolean[completedBoard.length];
+    for (int i = 0; i < completedBoard.length; i++) {
+      if (completedBoard[i] == 0) {
+        expandedBoardResult[i] = true;
+      }
+    }
+    System.out.println(Arrays.toString(expandedBoardResult));
+
+    boolean[] expandedBoard = board.expandCell(22);
+
+    assert Arrays.equals(new boolean[]{false, false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false, false, true, true, false, false,
+        false, false, false, false, true, true, false, false, true, true, true, true, true, true, true, true, true,
+        true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+        true, true, true}, expandedBoard);
 
   }
 

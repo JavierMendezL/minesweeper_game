@@ -22,8 +22,6 @@ public class Board {
   public Board() {
   }
 
-  ;
-
   public void setRows(int i) {
     this.rows = i;
     if (i <= 0) {
@@ -101,7 +99,6 @@ public class Board {
       }
     }
 
-
     int[] allCells = new int[cells.length];
     for (int i = 0; i < allCells.length; i++) {
       allCells[i] = cells[i].getValue();
@@ -162,5 +159,9 @@ public class Board {
       return new int[]{mineSurrounding[0], mineSurrounding[1], mineSurrounding[2], mineSurrounding[3], mineSurrounding[4], mineSurrounding[5], mineSurrounding[6], mineSurrounding[7]};
 
     }
+  }
+
+  public boolean[] expandCell(int i) {
+    return new boolean[]{false};
   }
 }
