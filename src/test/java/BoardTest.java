@@ -80,19 +80,17 @@ public class BoardTest extends TestCase{
   public void testCreateAllCells(){
     board = new Board(5,5);
     board.setMinesPosition(new int[]{1,6,8,12,16,19,20,24});
-    int[] expectedCells = new int[]{2, -1, 3, 1, 1, 2, -1, 3, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1};
-    assert  (Arrays.equals(expectedCells, board.createAllCells()));
+    //int[] expectedCells = new int[]{2, -1, 3, 1, 1, 2, -1, 3, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1};
+    int[] results = board.createAllCells();
+    assert  Arrays.equals(new int[]{2, -1, 3, 1, 1, 2, -1, 4, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1}, results);
   }
 
 
   public void testGettingPositionAroundValues(){
     board.setCols(3);
     board.setRows(3);
-    board.setMinesPosition(new int[]{1,2,3,4,5,6,7,8,9});
-
-    assert Arrays.equals(new int[]{1,2,3,4,6,7,8,9}, board.getCellAround());
-
-
+    int [] result = board.getCellAroundPosition(4);
+    assert Arrays.equals(new int[]{0,1,2,3,5,6,7,8}, result);
 
   }
 }

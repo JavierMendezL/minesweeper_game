@@ -8,6 +8,9 @@ public class Board {
   private int rows;
   private int cols;
   private int mines;
+  int[] minesPosition;
+  private Cell[] cells;
+
 
   public Board(int rows, int cols) {
     this.rows = rows;
@@ -47,7 +50,7 @@ public class Board {
 
   public int[] getRandomMinesPosition() {
     try {
-      int[] minesPosition = new int[getTotalMines()];
+      minesPosition = new int[getTotalMines()];
       int []allCells = new int[getTotalCellNumber()];
       List<Integer> integerList = new ArrayList<>();
       for (int i = 0; i < allCells.length; i++) {
@@ -64,20 +67,132 @@ public class Board {
   }
 
   public void setMinesPosition(int[] minesPosition) {
+    this.minesPosition = minesPosition;
+    cells = new Cell[getTotalCellNumber()];
+    for (int i = 0; i < minesPosition.length; i++) {
+      cells[minesPosition[i]] = new Cell(new Mine());
+    }
+    for (int i = 0; i < cells.length; i++) {
+      if (cells[i] == null){
+        cells[i] = new Cell(new Number());
+      }
+    }
   }
 
   public int[] createAllCells() {
-    int[] minesPositions = getRandomMinesPosition();
+    //int[] minesPositions = getRandomMinesPosition();
+    int [] mineSurrounding;
+    boolean modified;
+    for (int i = 0; i < minesPosition.length; i++) {
+      modified = false;
+      int minePosition = minesPosition[i];
+      mineSurrounding = getCellAroundPosition(minePosition);
+      if (minePosition%rows == 0){//left side
+        if (minePosition == 0){//top-left
+          if (!modified){
+            cells[mineSurrounding[4]].incrementValue();
+            cells[mineSurrounding[6]].incrementValue();
+            cells[mineSurrounding[7]].incrementValue();
+            modified = true;
+          }
+        }else if((minePosition + rows)==(rows*cols)){//bottom-left
+          if (!modified){
+            cells[mineSurrounding[1]].incrementValue();
+            cells[mineSurrounding[2]].incrementValue();
+            cells[mineSurrounding[4]].incrementValue();
+            modified = true;
+          }
+        }else{//left
+          if (!modified){
+            cells[mineSurrounding[1]].incrementValue();
+            cells[mineSurrounding[2]].incrementValue();
+            cells[mineSurrounding[4]].incrementValue();
+            cells[mineSurrounding[6]].incrementValue();
+            cells[mineSurrounding[7]].incrementValue();
+            modified = true;
+          }
+        }
+      }
+      if ((minePosition+1)%rows == 0){//right side
+        if (minePosition == rows-1){//top-right
+          if (!modified){
+            cells[mineSurrounding[3]].incrementValue();
+            cells[mineSurrounding[5]].incrementValue();
+            cells[mineSurrounding[6]].incrementValue();
+            modified =true;
+          }
+        }else if(minePosition == (rows*cols-1)){//bottom-right
+          if (!modified){
+            cells[mineSurrounding[0]].incrementValue();
+            cells[mineSurrounding[1]].incrementValue();
+            cells[mineSurrounding[3]].incrementValue();
+            modified = true;
+          }
+        }else{//right
+          if (!modified){
+            cells[mineSurrounding[0]].incrementValue();
+            cells[mineSurrounding[1]].incrementValue();
+            cells[mineSurrounding[3]].incrementValue();
+            cells[mineSurrounding[5]].incrementValue();
+            cells[mineSurrounding[6]].incrementValue();
+            modified = true;
+          }
+        }
+      }
+      if(minePosition< rows){ //top
+        if (!modified){
+          cells[mineSurrounding[3]].incrementValue();
+          cells[mineSurrounding[4]].incrementValue();
+          cells[mineSurrounding[5]].incrementValue();
+          cells[mineSurrounding[6]].incrementValue();
+          cells[mineSurrounding[7]].incrementValue();
+          modified = true;
+        }
 
-    for (int i = 0; i < minesPositions.length; i++) {
 
+      }else if(minePosition>=(rows*cols-1)-rows){ //bottom
+        if (!modified){
+          cells[mineSurrounding[3]].incrementValue();
+          cells[mineSurrounding[4]].incrementValue();
+          cells[mineSurrounding[5]].incrementValue();
+          cells[mineSurrounding[6]].incrementValue();
+          cells[mineSurrounding[7]].incrementValue();
+          modified = true;
+        }
 
+      }else{//regular
+        if (!modified){
+          cells[mineSurrounding[0]].incrementValue();
+          cells[mineSurrounding[1]].incrementValue();
+          cells[mineSurrounding[2]].incrementValue();
+          cells[mineSurrounding[3]].incrementValue();
+          cells[mineSurrounding[4]].incrementValue();
+          cells[mineSurrounding[5]].incrementValue();
+          cells[mineSurrounding[6]].incrementValue();
+          cells[mineSurrounding[7]].incrementValue();
+          modified = true;
+        }
+      }
     }
 
-    return new int[]{1};
+    int[] allCells =  new int[cells.length];
+    for (int i = 0; i < allCells.length; i++) {
+      allCells[i] = cells[i].getValue();
+    }
+    return allCells;
   }
 
-  public int[] getCellAround() {
-    return new int[]{1};
+  public int[] getCellAroundPosition(int position) {
+    int topLeft = (position-rows)-1;
+    int topRight = (position-rows)+1;
+    int top = position-rows;
+    int left = position-1;
+    int right = position + 1;
+    int bottom = position+rows;
+    int bottomLeft = (position+rows)-1;
+    int bottomRight = (position+rows)+1;
+
+    return new int[]{topLeft,top,topRight, left, right, bottomLeft, bottom, bottomRight};
+    //                 0      1   2         3     4         5         6         7
   }
 }
