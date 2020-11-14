@@ -129,6 +129,10 @@ public class BoardTest extends TestCase{
     positionsThatCanBeModified = board.getSurroundingPositions(7);
     assert Arrays.equals(new int[]{1, 2, 3, 6, 8, 11, 12, 13}, positionsThatCanBeModified);
 
+    board = new Board(3,5);
+    positionsThatCanBeModified = board.getSurroundingPositions(4);
+    assert Arrays.equals(new int[]{-1, -1, -1, 3, -1, 8, 9, -1}, positionsThatCanBeModified);
+
   }
 
 
