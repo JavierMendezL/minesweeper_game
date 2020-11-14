@@ -103,5 +103,17 @@ public class BoardTest extends TestCase{
     assertEquals(10,results);
 
 
+    board.createMines(-4);
+    results = board.getTotalMines();
+    assertEquals(-1,results);
+
+    board.createMines(0);
+    results = board.getTotalMines();
+    assertEquals(-1,results);
+
+
+
+
+
   }
 }

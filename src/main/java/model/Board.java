@@ -49,8 +49,9 @@ public class Board {
       mines = -1;
     }
   }
-  public void createMines(int i) {
-
+  public void createMines(int numberOfMines) {
+    this.mines = numberOfMines;
+    if (numberOfMines<= 0) this.mines = -1;
   }
 
   public int[] getRandomMinesPosition() {
