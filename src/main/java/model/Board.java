@@ -19,8 +19,7 @@ public class Board {
     this.cols = cols;
   }
 
-  public Board() {
-  }
+  public Board() { }
 
   public void setRows(int i) {
     this.rows = i;

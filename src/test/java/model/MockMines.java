@@ -1,10 +1,7 @@
 package model;
 
 public class MockMines implements CellState{
-  Cell cell;
-  Mine mine;
-  CellState state;
-
+  private Cell cell;
   private int value;
 
   @Override
@@ -13,9 +10,7 @@ public class MockMines implements CellState{
   }
 
   @Override
-  public int getValue() {
-    return value;
-  }
+  public int getValue() { return -1; }
 
   @Override
   public void setValue(int value) { }

@@ -1,11 +1,8 @@
 package model;
 
 public class MockNumber implements CellState{
-  Cell cell;
-  CellState state;
-  Number number;
-
-  private int value;
+  private Cell cell;
+  private int value = 3;
 
   public void setCell(Cell cell){
     this.cell = cell;
@@ -17,9 +14,7 @@ public class MockNumber implements CellState{
   }
 
   @Override
-  public void setValue(int value) {
-    this.value+= value;
-  }
+  public void setValue(int value) {this.value+=value;}
 
 
 }
