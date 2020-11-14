@@ -1,3 +1,5 @@
+package model;
+
 public class Number implements CellState{
   Cell cell;
   private int value;

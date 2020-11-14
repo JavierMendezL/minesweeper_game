@@ -1,3 +1,5 @@
+package model;
+
 public interface CellState {
   void setCell(Cell cell);
   int getValue();

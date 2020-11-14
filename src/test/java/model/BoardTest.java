@@ -1,3 +1,5 @@
+package model;
+
 import junit.framework.TestCase;
 import org.junit.Before;
 
@@ -81,7 +83,7 @@ public class BoardTest extends TestCase{
     board = new Board(5,5);
     board.setMinesPosition(new int[]{1,6,8,12,16,19,20,24});
     //int[] expectedCells = new int[]{2, -1, 3, 1, 1, 2, -1, 3, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1};
-    int[] results = board.createAllCells();
+    int[] results = board.setNumberMinesOnNeighbours();
     assert  Arrays.equals(new int[]{2, -1, 3, 1, 1, 2, -1, 4, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1}, results);
   }
 
@@ -91,6 +93,15 @@ public class BoardTest extends TestCase{
     board.setRows(3);
     int [] result = board.getCellAroundPosition(4);
     assert Arrays.equals(new int[]{0,1,2,3,5,6,7,8}, result);
+
+  }
+
+  public void testCreatingCustomMineNumber(){
+    Board board = new Board(10, 10);
+    board.createMines(10);
+    int results = board.getTotalMines();
+    assertEquals(10,results);
+
 
   }
 }

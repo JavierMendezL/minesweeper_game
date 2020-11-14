@@ -1,3 +1,5 @@
+package model;
+
 public class Mine implements CellState{
   Cell cell;
   @Override

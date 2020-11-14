@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,7 +10,7 @@ public class Board {
   private int rows;
   private int cols;
   private int mines;
-  int[] minesPosition;
+  private int[] minesPosition;
   private Cell[] cells;
 
 
@@ -47,6 +49,9 @@ public class Board {
       mines = -1;
     }
   }
+  public void createMines(int i) {
+
+  }
 
   public int[] getRandomMinesPosition() {
     try {
@@ -79,7 +84,7 @@ public class Board {
     }
   }
 
-  public int[] createAllCells() {
+  public int[] setNumberMinesOnNeighbours() {//setNumberMinesOnNeighbours
     //int[] minesPositions = getRandomMinesPosition();
     int [] mineSurrounding;
     boolean modified;
@@ -148,8 +153,6 @@ public class Board {
           cells[mineSurrounding[7]].incrementValue();
           modified = true;
         }
-
-
       }else if(minePosition>=(rows*cols-1)-rows){ //bottom
         if (!modified){
           cells[mineSurrounding[3]].incrementValue();
@@ -195,4 +198,6 @@ public class Board {
     return new int[]{topLeft,top,topRight, left, right, bottomLeft, bottom, bottomRight};
     //                 0      1   2         3     4         5         6         7
   }
+
+
 }
