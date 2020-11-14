@@ -115,13 +115,19 @@ public class BoardTest extends TestCase{
   public void testCheckIfSurroundingValuesAreCorrect(){
     //{topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight}
     //{0      ,1   , 2       , 3   , 4    , 5         , 6     , 7          }
+    //{0, 1, 2, 3, 4, 5, 6, 7}
     Board board = new Board(9, 9);
 
     int [] positionsThatCanBeModified = board.getSurroundingPositions(0); //0 is top-left : {4,6,7} -->valid in 9x9 board
 
     assert Arrays.equals(new int[]{-1, -1, -1, -1 ,1, -1, 9, 10}, positionsThatCanBeModified);
 
+    board = new Board(3,5);
+    positionsThatCanBeModified = board.getSurroundingPositions(4);
+    assert Arrays.equals(new int[]{-1, -1, -1, 3, -1, 8, 9, -1}, positionsThatCanBeModified);
 
+    positionsThatCanBeModified = board.getSurroundingPositions(7);
+    assert Arrays.equals(new int[]{1, 2, 3, 6, 8, 11, 12, 13}, positionsThatCanBeModified);
 
   }
 
