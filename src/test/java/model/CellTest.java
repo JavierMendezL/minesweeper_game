@@ -33,6 +33,8 @@ public class CellTest extends TestCase {
   }
 
 
+
+
   //cell.getState(); //visible o invisible(notOpen)
 
 

@@ -10,7 +10,7 @@ public class Cell{
   private CellState state;
 
   private int type;
-
+  private boolean visible;
   public Cell(CellState state){
     this.state = state;
     this.state.setCell(this);
@@ -29,8 +29,8 @@ public class Cell{
 
   public void setType(int type) { this.type=type; }
 
-  public boolean isVisible() { return true; }
+  public boolean isVisible() { return visible; }
 
-  public void setVisible(boolean b) { }
+  public void setVisible(boolean b) {this.visible=b; }
 
 }
