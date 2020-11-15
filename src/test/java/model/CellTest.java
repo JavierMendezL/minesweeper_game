@@ -24,6 +24,16 @@ public class CellTest extends TestCase {
     assertEquals(0, cell.getType()); //vacio
   }
 
+  public void testCheckCellVisibility(){
+    Cell cell = new Cell(Cell.MINE);
+    assert !cell.isVisible();
+    cell.setVisible(true);
+    assert cell.isVisible();
+
+  }
+
+
+  //cell.getState(); //visible o invisible(notOpen)
 
 
 }

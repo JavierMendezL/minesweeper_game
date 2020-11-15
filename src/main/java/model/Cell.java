@@ -29,5 +29,8 @@ public class Cell{
 
   public void setType(int type) { this.type=type; }
 
+  public boolean isVisible() { return true; }
+
+  public void setVisible(boolean b) { }
 
 }
