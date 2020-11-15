@@ -249,4 +249,12 @@ public class BoardTest extends TestCase {
         true, true, true, true, true,
         false, true, true, true, true}, expandedBoard6);
   }
+
+  public void testBoardFlux(){
+    Board board = new Board(8, 10);
+    board.createMines(10);
+
+    board.expandCell(10);
+
+  }
 }

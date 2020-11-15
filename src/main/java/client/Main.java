@@ -15,7 +15,7 @@ public class Main {
 
 
     BoardController boardController = new BoardController(boardView, board);
-    boardController.setUpController();
+    //boardController.setUpController();
 
   }
 }
