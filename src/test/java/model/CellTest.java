@@ -4,24 +4,8 @@ import junit.framework.TestCase;
 import org.junit.Before;
 
 public class CellTest extends TestCase {
-  Cell cell;
   @Before
-  public void setUp() {
-    CellState stateNumber = new MockNumber();
-    cell = new Cell(stateNumber);
-  }
-
-  public void testIncrementValue(){
-    cell.incrementValue();
-    assertEquals(4, cell.getValue());
-  }
-
-  public void testCheckMineValue(){
-    CellState stateMines = new MockMines();
-    cell = new Cell(stateMines);
-    cell.getValue();
-    assertEquals(-1, cell.getValue());
-  }
+  public void setUp() {  }
 
   public void testSetStateToCell(){
     Cell cell = new Cell(Cell.MINE); //public i static
@@ -40,6 +24,6 @@ public class CellTest extends TestCase {
     assertEquals(0, cell.getType()); //vacio
   }
 
-  //cell.getState(); //visible o invisible(notOpen)
+
 
 }

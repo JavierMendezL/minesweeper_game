@@ -1,13 +1,15 @@
 package model;
 
 public class Cell{
-  public static final int NUMBER = -2; //CANVIAR
-  public static final int FLAG = -2;
-  public static final int DOUBT = -2;
-  public static final int EMPTY = -2;
-  public static final int MINE = -2;
+  public static final int MINE = -1;
+  public static final int EMPTY = 0;
+  public static final int NUMBER = 1;
+  public static final int FLAG = 2;
+  public static final int DOUBT = 3;
+
   private CellState state;
 
+  private int type;
 
   public Cell(CellState state){
     this.state = state;
@@ -21,11 +23,11 @@ public class Cell{
     state.setValue(1);
   }
 
-  public Cell (int x){  }
+  public Cell (int x){ this.type=x; }
 
-  public int getType() { return -4;}
+  public int getType() { return type;}
 
-  public void setType(int flag) {
-  }
+  public void setType(int type) { this.type=type; }
+
 
 }
