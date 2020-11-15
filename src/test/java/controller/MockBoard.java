@@ -32,6 +32,14 @@ public class MockBoard extends Board {
         cells[i].setVisible(true);
         cells[i].setState(Cell.FLAG);
       }
+      if (i == 11) {
+        cells[i].setVisible(true);
+        cells[i].setState(Cell.DOUBT);
+      }
+      if (i == 12) {
+        cells[i].setVisible(true);
+        cells[i].setState(Cell.EMPTY);
+      }
     }
     return cells;
   }

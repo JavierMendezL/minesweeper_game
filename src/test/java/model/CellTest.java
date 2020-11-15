@@ -10,18 +10,22 @@ public class CellTest extends TestCase {
   public void testSetStateToCell(){
     Cell cell = new Cell(Cell.MINE); //public i static
     assertEquals(-1, cell.getType()); //tipos de mina;
+    cell.setState(Cell.FLAG);
+    assertEquals(2, cell.getState()); //Flag
+    cell.setState(Cell.DOUBT);
+    assertEquals(3, cell.getState()); //Flag
+    cell.setState(Cell.EMPTY);
+    assertEquals(0, cell.getState()); //Flag
 
     cell.setType(Cell.NO_MINE); //public static tipo numero
     assertEquals(1, cell.getType()); //tipo numero
+    cell.setState(Cell.FLAG);
+    assertEquals(2, cell.getState()); //Flag
+    cell.setState(Cell.DOUBT);
+    assertEquals(3, cell.getState()); //Flag
+    cell.setState(Cell.EMPTY);
+    assertEquals(0, cell.getState()); //Flag
 
-    cell.setType(Cell.FLAG);
-    assertEquals(2, cell.getType()); //Flag
-
-    cell.setType(Cell.DOUBT);
-    assertEquals(3, cell.getType()); //Interrogante - doubt
-
-    cell.setType(Cell.EMPTY);
-    assertEquals(0, cell.getType()); //vacio
   }
 
   public void testCheckCellVisibility(){
@@ -43,6 +47,8 @@ public class CellTest extends TestCase {
     result = cell.getValue();
     assertEquals(-1, result);
   }
+
+
 
 
 
