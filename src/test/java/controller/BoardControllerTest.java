@@ -1,6 +1,7 @@
 package controller;
 
 import junit.framework.TestCase;
+import model.Cell;
 
 public class BoardControllerTest extends TestCase {
   BoardController boardController;
@@ -17,8 +18,12 @@ public class BoardControllerTest extends TestCase {
 
   public void testWhenCellIsPressedMakeItVisible() {
     boardController.cellPressed(10);
-
     assert mockBoard.getCells()[10].isVisible();
+  }
+
+  public void testSetCellWithFlagOnRightClick(){
+    boardController.cellPressed(10);
+    assertEquals(Cell.FLAG, mockBoard.getCells()[10].getType());
 
   }
 
