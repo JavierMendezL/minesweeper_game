@@ -9,4 +9,9 @@ public class RandomMinesGeneratorTest extends TestCase {
         assertEquals(3, expected.length);
     }
 
+    public void testPassedNegativeValueReturnsArrayWithMinusOne(){
+        int[] expected = RandomMinesGenerator.generate(10, 8, -1);
+        assertEquals(new int[]{-1}, expected);
+    }
+
 }
