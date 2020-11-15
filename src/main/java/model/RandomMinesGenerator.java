@@ -19,7 +19,7 @@ public class RandomMinesGenerator {
             minesPosition = integerList.stream().mapToInt(i -> i).toArray();
             return Arrays.copyOfRange(minesPosition, 0, mines);
 
-        } catch (NegativeArraySizeException exception) {
+        } catch (Exception exception) {
             return new int[]{-1};
         }
 
