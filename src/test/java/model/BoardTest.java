@@ -78,6 +78,7 @@ public class BoardTest extends TestCase {
   }
 
 
+
   public void testCreateAllCells() {
     board = new Board(5, 5);
     board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
@@ -250,11 +251,12 @@ public class BoardTest extends TestCase {
         false, true, true, true, true}, expandedBoard6);
   }
 
-  public void testBoardFlux(){
+  /*public void testBoardFlux(){
     Board board = new Board(8, 10);
     board.createMines(10);
 
+
     board.expandCell(10);
 
-  }
+  }*/
 }

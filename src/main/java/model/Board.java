@@ -45,10 +45,6 @@ public class Board {
     return mines;
   }
 
-  public Cell[] getCells() {
-    return cells;
-  }
-
   public void createMines() {
     mines = getTotalCellNumber() / 3;
     if (getTotalCellNumber() / 3 < 1) {
@@ -164,6 +160,8 @@ public class Board {
   }
 
   public boolean[] expandCell(int positionToExpand) {
+
+
     boolean[] cellBoard = new boolean[cells.length];
     if (cells[positionToExpand].getType() == Cell.NO_MINE || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getType() == Cell.DOUBT) {
       cells[positionToExpand].setVisible(true);
