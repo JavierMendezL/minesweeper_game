@@ -2,14 +2,19 @@ package view;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.Utilities;
 
 public class BoardView extends JFrame {
 
-  JButton[] cells;
+  private ArrayList<JButton> cellsButtons;
   int cellsSize;
 
+
+  public ArrayList<JButton> getCellsButtons(){
+    return cellsButtons;
+  }
   public BoardView() {
     this.setTitle("Board");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,10 +32,10 @@ public class BoardView extends JFrame {
     JPanel mainSection = new JPanel();
     mainSection.setLayout(new GridLayout(10, 10));
 
-    cells = new JButton[cellsSize];
+    cellsButtons = new ArrayList<>();
     for (int i = 0; i < cellsSize; i++) {
-      cells[i] = new JButton(Integer.toString(i));
-      mainSection.add(cells[i]);
+      cellsButtons.add( new JButton(""));
+      mainSection.add(cellsButtons.get(i));
       container.add(mainSection, BorderLayout.CENTER);
 
     }
@@ -39,9 +44,11 @@ public class BoardView extends JFrame {
     this.setVisible(true);
   }
 
+
+
   public void addCalculationListener(ActionListener listener) {
     for (int i = 0; i < cellsSize; i++) {
-      cells[i].addActionListener(listener);
+      cellsButtons.get(i).addActionListener(listener);
     }
   }
 

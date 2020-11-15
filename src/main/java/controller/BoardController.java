@@ -2,6 +2,7 @@ package controller;
 
 
 import model.Board;
+import model.Cell;
 import view.BoardView;
 
 import javax.swing.*;
@@ -29,7 +30,12 @@ public class BoardController implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent actionEvent) {
     String text = ((JButton) actionEvent.getSource()).getText();
-    view.displayMessage(text);
+    int i = view.getCellsButtons().indexOf(actionEvent.getSource());
+    view.displayMessage(String.valueOf(i));
+  }
+
+  public void cellPressed(int position) {
+
   }
 }
 

@@ -45,6 +45,10 @@ public class Board {
     return mines;
   }
 
+  public Cell[] getCells() {
+    return cells;
+  }
+
   public void createMines() {
     mines = getTotalCellNumber() / 3;
     if (getTotalCellNumber() / 3 < 1) {
