@@ -31,11 +31,22 @@ public class BoardController implements ActionListener {
   public void actionPerformed(ActionEvent actionEvent) {
     String text = ((JButton) actionEvent.getSource()).getText();
     int i = view.getCellsButtons().indexOf(actionEvent.getSource());
+    cellPressed(i);
+
     view.displayMessage(String.valueOf(i));
+    updateView();
   }
 
   public void cellPressed(int position) {
+    model.expandCell(position);
+  }
 
+  public void updateView(){
+    for (int i = 0; i < model.getTotalCellNumber(); i++) {
+      if (model.getCells()[i].isVisible()){
+        view.getCellsButtons().get(i).setText(String.valueOf(model.getCells()[i].getValue()));
+      }
+    }
   }
 }
 
