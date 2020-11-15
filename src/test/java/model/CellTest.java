@@ -32,6 +32,18 @@ public class CellTest extends TestCase {
 
   }
 
+  public void testIncrementValueOfCell(){
+    Cell cell = new Cell(Cell.NUMBER);
+    cell.incrementValue();
+    int result = cell.getValue();
+    assertEquals(1, result);
+
+    cell = new Cell(Cell.MINE);
+    cell.incrementValue();
+    result = cell.getValue();
+    assertEquals(-1, result);
+  }
+
 
 
 
