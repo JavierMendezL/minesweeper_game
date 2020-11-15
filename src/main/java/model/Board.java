@@ -1,9 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Board {
 
@@ -58,21 +54,7 @@ public class Board {
   }
 
   public int[] getRandomMinesPosition() {
-    try {
-      minesPosition = new int[getTotalMines()];
-      int[] allCells = new int[getTotalCellNumber()];
-      List<Integer> integerList = new ArrayList<>();
-      for (int i = 0; i < allCells.length; i++) {
-        integerList.add(i);
-      }
-      Collections.shuffle(integerList);
-
-      minesPosition = integerList.stream().mapToInt(i -> i).toArray();
-      return Arrays.copyOfRange(minesPosition, 0, getTotalMines());
-
-    } catch (NegativeArraySizeException exception) {
-      return new int[]{-1};
-    }
+    return RandomMinesGenerator.generate(rows,cols,getTotalMines());
   }
 
   public void setMinesPosition(int[] minesPosition) {
