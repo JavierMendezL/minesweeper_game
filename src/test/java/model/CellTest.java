@@ -11,7 +11,7 @@ public class CellTest extends TestCase {
     Cell cell = new Cell(Cell.MINE); //public i static
     assertEquals(-1, cell.getType()); //tipos de mina;
 
-    cell.setType(Cell.NUMBER); //public static tipo numero
+    cell.setType(Cell.NO_MINE); //public static tipo numero
     assertEquals(1, cell.getType()); //tipo numero
 
     cell.setType(Cell.FLAG);
@@ -33,7 +33,7 @@ public class CellTest extends TestCase {
   }
 
   public void testIncrementValueOfCell(){
-    Cell cell = new Cell(Cell.NUMBER);
+    Cell cell = new Cell(Cell.NO_MINE);
     cell.incrementValue();
     int result = cell.getValue();
     assertEquals(1, result);

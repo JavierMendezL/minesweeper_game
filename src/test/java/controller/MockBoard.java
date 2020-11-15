@@ -9,14 +9,14 @@ public class MockBoard extends Board {
   int cols;
   int mines;
   int[] minesPosition;
-  Cell[] cells;
+  Cell[] myCells;
 
   public MockBoard() {
     rows = 5;
     cols = 5;
     mines = 10;
     minesPosition = new int[]{1, 6, 8, 12, 16, 19, 20, 24};
-    cells = makeCells();
+    myCells = makeCells();
   }
 
   private Cell[] makeCells() {
@@ -26,10 +26,11 @@ public class MockBoard extends Board {
       if (cellArray[i] == -1) {
         cells[i] = new Cell(Cell.MINE);
       } else {
-        cells[i] = new Cell(Cell.NUMBER);
+        cells[i] = new Cell(Cell.NO_MINE);
       }
       if (i == 10) {
         cells[i].setVisible(true);
+        cells[i].setState(Cell.FLAG);
       }
     }
     return cells;
@@ -37,12 +38,15 @@ public class MockBoard extends Board {
 
   @Override
   public Cell[] getCells() {
-    return this.cells;
+    return this.myCells;
   }
 
   public boolean[] expandCell(int position) {
     return new boolean[]{false};
   }
+
+
+
 
 
 }

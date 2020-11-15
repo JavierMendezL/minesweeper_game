@@ -2,6 +2,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.Utilities;
@@ -46,11 +47,17 @@ public class BoardView extends JFrame {
 
 
 
-  public void addCalculationListener(ActionListener listener) {
+  public void addActionListener(ActionListener listener) {
     for (int i = 0; i < cellsSize; i++) {
       cellsButtons.get(i).addActionListener(listener);
     }
   }
+  public void addMouseListenerToCells(MouseListener mouseListener){
+    for (int i = 0; i < cellsSize; i++) {
+      cellsButtons.get(i).addMouseListener(mouseListener);
+    }
+  }
+
 
   public void displayMessage(String message){
     JOptionPane.showMessageDialog(this, message);

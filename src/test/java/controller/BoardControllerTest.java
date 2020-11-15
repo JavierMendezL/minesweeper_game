@@ -21,9 +21,9 @@ public class BoardControllerTest extends TestCase {
     assert mockBoard.getCells()[10].isVisible();
   }
 
-  public void testSetCellWithFlagOnRightClick(){
-    boardController.cellPressed(10);
-    assertEquals(Cell.FLAG, mockBoard.getCells()[10].getType());
+  public void testSetCellWithFlag(){
+    boardController.rightClickOn(10);
+    assertEquals(Cell.FLAG, mockBoard.getCells()[10].getState());
 
   }
 

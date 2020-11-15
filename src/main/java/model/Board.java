@@ -165,7 +165,7 @@ public class Board {
 
   public boolean[] expandCell(int positionToExpand) {
     boolean[] cellBoard = new boolean[cells.length];
-    if (cells[positionToExpand].getType() == Cell.NUMBER || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getType() == Cell.DOUBT) {
+    if (cells[positionToExpand].getType() == Cell.NO_MINE || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getType() == Cell.DOUBT) {
       cells[positionToExpand].setVisible(true);
       cellBoard[positionToExpand] = true;
     } else if (cells[positionToExpand].getType() == Cell.EMPTY) {
