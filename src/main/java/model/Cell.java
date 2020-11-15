@@ -28,6 +28,9 @@ public class Cell {
   public void incrementValue() {
     if (type == NUMBER) {
       value += 1;
+    }else if(type == EMPTY){
+      this.setType(NUMBER);
+      value += 1;
     }
   }
 

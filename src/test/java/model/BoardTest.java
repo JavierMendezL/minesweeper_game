@@ -164,22 +164,6 @@ public class BoardTest extends TestCase {
 
 
   public void testExpandCell() {
-    /*board = new Board(5, 5);
-    board.setMinesPosition(new int[]{20});
-    board.setNumberMinesOnNeighbours();
-    boolean[] expandedBoard2 = board.expandCell(4);                       //Para probar
-    boolean[] expected = new boolean[]{
-        false, false, false, false, true,
-        false, false, false, false, false,
-        false, false, true, false, false,
-        false, false, false, false, false,
-        false, false, false, false, false};
-
-    System.out.println("N |EXPECTED |  OUTPUT");
-    for (int i = 0; i < expected.length; i++) {
-      System.out.println(i+" | " + expected[i] + " | " + expandedBoard2[i]);}*/
-
-
     board = new Board(8, 8);
     board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
     board.setNumberMinesOnNeighbours();
@@ -223,24 +207,26 @@ public class BoardTest extends TestCase {
     board.setMinesPosition(new int[]{2, 6, 8, 9});
     board.setNumberMinesOnNeighbours();
     boolean[] expandedBoard3 = board.expandCell(5);
+
     assert Arrays.equals(new boolean[]{
-        true, true, false, false,
-        true, true, false, false,
-        false, false, true, false,
+        false, false, false, false,
+        false, true, false, false,
+        false, false, false, false,
         false, false, false, false,
         false, false, false, false,
         false, false, false, false}, expandedBoard3);
 
-   board = new Board(6, 4);
+    board = new Board(6, 4);
     board.setMinesPosition(new int[]{13, 20, 21, 22, 23});
     board.setNumberMinesOnNeighbours();
     boolean[] expandedBoard4 = board.expandCell(17);
+
     assert Arrays.equals(new boolean[]{
         false, false, false, false,                          //Pone pos 8-9-10 a false, pero
         false, false, false, false,                          // IMPORTANTE pone la 17 a false cuando es la que hemos clicado
-        true, true, true, false,
-        true, false, true, false,
-        true, true, true, true,
+        false, false, false, false,
+        false, false, false, false,
+        false, true, false, false,
         false, false, false, false}, expandedBoard4);
 
     board = new Board(3, 3);
@@ -250,7 +236,7 @@ public class BoardTest extends TestCase {
     assert Arrays.equals(new boolean[]{
         false, false, false,
         false, false, false,
-        false, true, true}, expandedBoard5);
+        false, false, true}, expandedBoard5);
 
     board = new Board(5, 5);
     board.setMinesPosition(new int[]{20});
@@ -262,7 +248,5 @@ public class BoardTest extends TestCase {
         true, true, true, true, true,
         true, true, true, true, true,
         false, true, true, true, true}, expandedBoard6);
-
-
   }
 }

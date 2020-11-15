@@ -19,7 +19,8 @@ public class Board {
     this.cols = cols;
   }
 
-  public Board() { }
+  public Board() {
+  }
 
   public void setRows(int i) {
     this.rows = i;
@@ -78,11 +79,11 @@ public class Board {
     this.minesPosition = minesPosition;
     cells = new Cell[getTotalCellNumber()];
     for (int minePosition : minesPosition) {
-      cells[minePosition] = new Cell(new Mine());
+      cells[minePosition] = new Cell(Cell.MINE);
     }
     for (int i = 0; i < cells.length; i++) {
       if (cells[i] == null) {
-        cells[i] = new Cell(new Number());
+        cells[i] = new Cell(Cell.EMPTY);
       }
     }
   }
@@ -159,23 +160,26 @@ public class Board {
   }
 
   public boolean[] expandCell(int positionToExpand) {
-
     boolean[] cellBoard = new boolean[cells.length];
-    expandCellRecursive(positionToExpand, cellBoard);
+    if (cells[positionToExpand].getType() == Cell.NUMBER || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getType() == Cell.DOUBT) {
+      cellBoard[positionToExpand] = true;
+    } else if (cells[positionToExpand].getType() == Cell.EMPTY) {
+      expandCellRecursive(positionToExpand, cellBoard);
+    }
     return cellBoard;
   }
 
-  public void expandCellRecursive(int positionToExpand, boolean[] cellBoard ){
-    int [] surroundingPositions = getSurroundingPositions(positionToExpand);
-    for (int surroundingPosition: surroundingPositions) {
-      if (surroundingPosition != -1){
-        if(cells[surroundingPosition].getValue() == 0){
-          if (!cellBoard[surroundingPosition]){
+  public void expandCellRecursive(int positionToExpand, boolean[] cellBoard) {
+    int[] surroundingPositions = getSurroundingPositions(positionToExpand);
+    for (int surroundingPosition : surroundingPositions) {
+      if (surroundingPosition != -1) {
+        if (cells[surroundingPosition].getValue() == 0) {
+          if (!cellBoard[surroundingPosition]) {
             cellBoard[surroundingPosition] = true;
             expandCellRecursive(surroundingPosition, cellBoard);
           }
-        }else{
-          if (cells[surroundingPosition].getValue() > 0){
+        } else {
+          if (cells[surroundingPosition].getValue() > 0) {
             if (!cellBoard[surroundingPosition]) {
               cellBoard[surroundingPosition] = true;
             }
