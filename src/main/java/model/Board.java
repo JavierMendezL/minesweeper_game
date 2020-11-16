@@ -188,5 +188,11 @@ public class Board {
   }
 
 
+  public void changeState(int i, int flag) {
+  }
+
+  public boolean isGameFinished() {
+    return false;
+  }
 }
 
