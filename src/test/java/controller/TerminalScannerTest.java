@@ -3,11 +3,15 @@ package controller;
 import junit.framework.TestCase;
 import org.junit.Before;
 
+import java.io.InputStreamReader;
+import java.io.Reader;
+
 public class TerminalScannerTest extends TestCase {
     TerminalScanner terminalScanner;
     @Before
     public void setUp() {
-        terminalScanner = new TerminalScanner();
+        MockScanner mockScanner = new MockScanner(new InputStreamReader(System.in));
+        terminalScanner = new TerminalScanner(mockScanner);
     }
 
     public void testReadRowFromTerminal() {
