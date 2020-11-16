@@ -20,6 +20,7 @@ public class TerminalScannerTest extends TestCase {
         terminalScanner.readNumberFromTerminal(8);
         result = terminalScanner.readNumberFromTerminal(8);
         assertEquals(7, result);
+
     }
 
 }
