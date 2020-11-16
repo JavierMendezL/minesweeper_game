@@ -18,6 +18,10 @@ public class Board {
   public Board() {
   }
 
+  public Cell[] getCells() {
+    return cells;
+  }
+
   public void setRows(int i) {
     this.rows = i;
     if (i <= 0) {
@@ -175,11 +179,14 @@ public class Board {
   }
 
   public boolean isGameOver() {
+    for (int minePosition: minesPosition) {
+      if (cells[minePosition].isVisible()){
+        return true;
+      }
+    }
     return false;
   }
 
-  public Cell[] getCells() {
-    return new Cell[]{new Cell(Cell.MINE)};
-  }
+
 }
 
