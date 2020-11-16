@@ -76,9 +76,23 @@ public class BoardTest extends TestCase {
     board.createMines();
     assertEquals(8, board.getTotalMines());
 
-
     board.setRows(2);
     board.setCols(1);
+    board.createMines();
+    assertEquals(-1, board.getTotalMines());
+
+    board.setRows(1);
+    board.setCols(3);
+    board.createMines();
+    assertEquals(1, board.getTotalMines());
+
+    board.setRows(0);
+    board.setCols(3);
+    board.createMines();
+    assertEquals(-1, board.getTotalMines());
+
+    board.setRows(0);
+    board.setCols(0);
     board.createMines();
     assertEquals(-1, board.getTotalMines());
   }
