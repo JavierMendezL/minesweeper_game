@@ -13,6 +13,10 @@ public class BoardController {
     this.view = view;
     this.model = model;
   }
+
+  public int askAction() {
+    return 0;
+  }
 }
 
 

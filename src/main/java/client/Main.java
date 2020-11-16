@@ -1,13 +1,9 @@
 package client;
 
-import controller.BoardController;
 import controller.TerminalScanner;
-import model.Board;
-import view.BoardView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
@@ -23,7 +19,7 @@ public class Main {
     //boardController.setUpController();*/
     TerminalScanner terminalScanner = new TerminalScanner(new BufferedReader(new InputStreamReader(System.in)));
 
-    terminalScanner.readRowFromTerminal(10);
+    terminalScanner.readNumberFromTerminal(10);
 
   }
 }

@@ -4,7 +4,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 
 import java.io.InputStreamReader;
-import java.io.Reader;
 
 public class TerminalScannerTest extends TestCase {
     TerminalScanner terminalScanner;
@@ -15,8 +14,8 @@ public class TerminalScannerTest extends TestCase {
     }
 
     public void testReadRowFromTerminal() {
-        int result = terminalScanner.readRowFromTerminal(8);
+        int result = terminalScanner.readNumberFromTerminal(8);
         assertEquals(3, result);
-
     }
+
 }
