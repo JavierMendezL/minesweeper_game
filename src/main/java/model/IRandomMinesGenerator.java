@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface IRandomMinesGenerator {
 
-  public static int[] generate(int rows, int cols, int mines) {
+  static int[] generate(int rows, int cols, int mines) {
     int[] minesPosition;
     try {
-      int[] allCells = new int[rows*cols];
-      if(rows<=0 || cols <= 0){return new int[]{-1};}
+      int[] allCells = new int[rows * cols];
+      if (rows <= 0 || cols <= 0) {
+        return new int[]{-1};
+      }
       List<Integer> integerList = new ArrayList<>();
       for (int i = 0; i < allCells.length; i++) {
         integerList.add(i);
@@ -24,5 +26,5 @@ public interface IRandomMinesGenerator {
     } catch (Exception exception) {
       return new int[]{-1};
     }
-
+  }
 }

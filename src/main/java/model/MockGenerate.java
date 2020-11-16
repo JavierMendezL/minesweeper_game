@@ -1,4 +1,5 @@
 package model;
 
-public class MockGenerate {
+public class MockGenerate implements IRandomMinesGenerator{
+
 }

@@ -8,7 +8,7 @@ public class Board {
   private int mines;
   private int[] minesPosition;
   private Cell[] cells;
-
+  private IRandomMinesGenerator generator;
 
   public Board(int rows, int cols) {
     this.rows = rows;
@@ -58,7 +58,9 @@ public class Board {
   }
 
   public int[] getRandomMinesPosition() {
-    return RandomMinesGenerator.generate(rows, cols, getTotalMines());
+    return IRandomMinesGenerator.generate(rows, cols, getTotalMines());
+    //RandomMinesGenerator.generate(rows, cols, getTotalMines());
+    //en el test del size del RandomMineGeneratorTest
   }
 
   public void setMinesPosition(int[] minesPosition) {
