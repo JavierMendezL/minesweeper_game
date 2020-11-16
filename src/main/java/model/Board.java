@@ -58,7 +58,7 @@ public class Board {
   }
 
   public int[] getRandomMinesPosition() {
-    return RandomMinesGenerator.generate(rows,cols,getTotalMines());
+    return RandomMinesGenerator.generate(rows, cols, getTotalMines());
   }
 
   public void setMinesPosition(int[] minesPosition) {
@@ -149,7 +149,7 @@ public class Board {
 
 
     boolean[] cellBoard = new boolean[cells.length];
-    if (cells[positionToExpand].getType() == Cell.NO_MINE || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getType() == Cell.DOUBT) {
+    if (cells[positionToExpand].getType() == Cell.NO_MINE || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getState() == Cell.DOUBT || cells[positionToExpand].getState() == Cell.EMPTY) {
       cells[positionToExpand].setVisible(true);
       cellBoard[positionToExpand] = true;
     } else if (cells[positionToExpand].getType() == Cell.EMPTY) {
@@ -179,8 +179,8 @@ public class Board {
   }
 
   public boolean isGameOver() {
-    for (int minePosition: minesPosition) {
-      if (cells[minePosition].isVisible()){
+    for (int minePosition : minesPosition) {
+      if (cells[minePosition].isVisible()) {
         return true;
       }
     }
@@ -188,11 +188,22 @@ public class Board {
   }
 
 
-  public void changeState(int i, int flag) {
+  public void changeState(int position, int state) {
+    cells[position].setState(state);
   }
 
   public boolean isGameFinished() {
-    return false;
+    boolean finished = true;
+
+    for (Cell cell : cells) {
+      if (cell.getType() == Cell.MINE && cell.getState() != Cell.FLAG) {
+        finished = false;
+      }
+      if (!cell.isVisible() && cell.getType() != Cell.MINE) {
+        finished = false;
+      }
+    }
+    return finished;
   }
 }
 

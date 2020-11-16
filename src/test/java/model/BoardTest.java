@@ -282,6 +282,7 @@ public class BoardTest extends TestCase {
     board.expandCell(5);
     board.expandCell(6);
     board.expandCell(7);
+    board.expandCell(8);
     board.changeState(1,Cell.FLAG);
     board.changeState(3,Cell.FLAG);
 
