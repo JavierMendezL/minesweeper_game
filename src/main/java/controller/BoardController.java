@@ -22,8 +22,9 @@ public class BoardController {
     System.out.println("[1] Put flag");
     System.out.println("[2] Put question mark");
     return terminalScanner.readNumberFromTerminal(2);
-
   }
+
+
 }
 
 

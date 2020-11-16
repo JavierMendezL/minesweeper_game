@@ -16,6 +16,10 @@ public class TerminalScannerTest extends TestCase {
     public void testReadRowFromTerminal() {
         int result = terminalScanner.readNumberFromTerminal(8);
         assertEquals(3, result);
+
+        terminalScanner.readNumberFromTerminal(8);
+        result = terminalScanner.readNumberFromTerminal(8);
+        assertEquals(7, result);
     }
 
 }

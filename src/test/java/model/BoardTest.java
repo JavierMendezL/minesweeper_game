@@ -252,4 +252,22 @@ public class BoardTest extends TestCase {
         true, true, true, true, true,
         false, true, true, true, true}, expandedBoard6);
   }
+
+  public void testCheckIfGameIsOver(){
+    board = new Board(10,10);
+    board.createMines(2);
+    board.setMinesPosition(new int[]{1,3});
+    board.setNumberMinesOnNeighbours();
+
+    board.expandCell(1);
+
+    boolean gameStatus = board.isGameOver();
+
+    Cell[] cells = board.getCells();
+
+    assert cells[1].getType() == Cell.MINE;
+    assert cells[1].isVisible();
+    assert gameStatus;
+
+  }
 }

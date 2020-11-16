@@ -173,5 +173,13 @@ public class Board {
       }
     }
   }
+
+  public boolean isGameOver() {
+    return false;
+  }
+
+  public Cell[] getCells() {
+    return new Cell[]{new Cell(Cell.MINE)};
+  }
 }
 

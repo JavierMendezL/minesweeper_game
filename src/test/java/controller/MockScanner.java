@@ -1,10 +1,8 @@
 package controller;
 
 import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.IOException;
 import java.io.Reader;
-import java.util.Scanner;
+
 
 class MockScanner extends BufferedReader {
 
@@ -25,7 +23,20 @@ class MockScanner extends BufferedReader {
       return "3";
     }
     if (calls == 1){
+      calls+=1;
       return  "2";
+    }
+    if (calls ==2){
+      calls+=1;
+      return "a";
+    }
+    if (calls ==3){
+      calls+=1;
+      return "7";
+    }
+    if (calls ==4){
+      calls+=1;
+      return "3";
     }
     return "-1";
   }

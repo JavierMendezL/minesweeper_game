@@ -9,23 +9,34 @@ import java.io.InputStreamReader;
 
 public class BoardControllerTest extends TestCase {
   TerminalScanner terminalScanner;
+  BoardController boardController;
+  Board model;
+  BoardView view;
   @Before
   public void setUp() {
     MockScanner mockScanner = new MockScanner(new InputStreamReader(System.in));
     terminalScanner = new TerminalScanner(mockScanner);
-  }
-
-  public void testVerifyMultipleActionControllerCanDo(){
-    Board model = new Board(10,10);
+    model = new Board(10,10);
     model.createMines(7);
     model.setMinesPosition(model.getRandomMinesPosition());
 
-    BoardView view = new BoardView();
-    BoardController boardController = new BoardController(view, model, terminalScanner);
+    view = new BoardView();
+    boardController = new BoardController(view, model, terminalScanner);
+
+  }
+
+  public void testVerifyMultipleActionControllerCanDo(){
 
     int option = boardController.askAction(); //OPEN
     assertEquals(2, option);
 
   }
+
+
+
+  /*public void testPerformActionWithController(){
+
+    //boardController.performeAction(2); //PUT QUESTION-MARK on CELL 7X3 (mockScanner)
+  }*/
 
 }
