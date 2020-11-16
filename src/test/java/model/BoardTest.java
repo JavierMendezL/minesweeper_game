@@ -110,7 +110,29 @@ public class BoardTest extends TestCase {
     minesAssigment = board.getRandomMinesPosition();
     assert Arrays.equals(new int[]{-1}, minesAssigment);
 
+    board.setRows(1);
+    board.setCols(2);
+    board.createMines();
+    minesAssigment = board.getRandomMinesPosition();
+    assert Arrays.equals(new int[]{-1}, minesAssigment);
 
+    board.setRows(0);
+    board.setCols(2);
+    board.createMines();
+    minesAssigment = board.getRandomMinesPosition();
+    assert Arrays.equals(new int[]{-1}, minesAssigment);
+
+    board.setRows(1);
+    board.setCols(0);
+    board.createMines();
+    minesAssigment = board.getRandomMinesPosition();
+    assert Arrays.equals(new int[]{-1}, minesAssigment);
+
+    board.setRows(0);
+    board.setCols(0);
+    board.createMines();
+    minesAssigment = board.getRandomMinesPosition();
+    assert Arrays.equals(new int[]{-1}, minesAssigment);
   }
 
 
