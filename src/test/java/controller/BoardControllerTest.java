@@ -2,6 +2,7 @@ package controller;
 
 import junit.framework.TestCase;
 import model.Board;
+import model.RandomMinesGenerator;
 import org.junit.Before;
 import view.BoardView;
 
@@ -17,6 +18,7 @@ public class BoardControllerTest extends TestCase {
     MockScanner mockScanner = new MockScanner(new InputStreamReader(System.in));
     terminalScanner = new TerminalScanner(mockScanner);
     model = new Board(10,10);
+    model.setGenerator(new RandomMinesGenerator());
     model.createMines(7);
     model.setMinesPosition(model.getRandomMinesPosition());
 
@@ -26,7 +28,6 @@ public class BoardControllerTest extends TestCase {
   }
 
   public void testVerifyMultipleActionControllerCanDo(){
-
     int option = boardController.askAction(); //OPEN
     assertEquals(2, option);
 

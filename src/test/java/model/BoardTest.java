@@ -98,41 +98,16 @@ public class BoardTest extends TestCase {
   }
 
   public void testCreateMinesPosition() {
+    MockGenerate mock = new MockGenerate();
+    board.setGenerator(mock);
+
     board.setRows(5);
     board.setCols(5);
     board.createMines();
     int[] minesAssigment = board.getRandomMinesPosition();
-    assert minesAssigment.length == board.getTotalMines();
+    //assert minesAssigment.length == board.getTotalMines();
+    assert Arrays.equals(new int[]{3, 2, 1}, minesAssigment);
 
-    board.setRows(1);
-    board.setCols(2);
-    board.createMines();
-    minesAssigment = board.getRandomMinesPosition();
-    assert Arrays.equals(new int[]{-1}, minesAssigment);
-
-    board.setRows(1);
-    board.setCols(2);
-    board.createMines();
-    minesAssigment = board.getRandomMinesPosition();
-    assert Arrays.equals(new int[]{-1}, minesAssigment);
-
-    board.setRows(0);
-    board.setCols(2);
-    board.createMines();
-    minesAssigment = board.getRandomMinesPosition();
-    assert Arrays.equals(new int[]{-1}, minesAssigment);
-
-    board.setRows(1);
-    board.setCols(0);
-    board.createMines();
-    minesAssigment = board.getRandomMinesPosition();
-    assert Arrays.equals(new int[]{-1}, minesAssigment);
-
-    board.setRows(0);
-    board.setCols(0);
-    board.createMines();
-    minesAssigment = board.getRandomMinesPosition();
-    assert Arrays.equals(new int[]{-1}, minesAssigment);
   }
 
 
@@ -364,5 +339,7 @@ public class BoardTest extends TestCase {
     assert gameIsFinished;
 
   }
+
+
 
 }
