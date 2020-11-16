@@ -31,6 +31,16 @@ public class BoardTest extends TestCase {
     int totalCellNumber2 = board.getTotalCellNumber();
     assertEquals(7, totalCellNumber2);
 
+    board.setRows(1);
+    board.setCols(3);
+    int totalCellNumber3 = board.getTotalCellNumber();
+    assertEquals(3, totalCellNumber3);
+
+    board.setRows(1);
+    board.setCols(1);
+    int totalCellNumber4 = board.getTotalCellNumber();
+    assertEquals(1, totalCellNumber4);
+
   }
 
   public void testAssignRowsColsToBoardFails() {
