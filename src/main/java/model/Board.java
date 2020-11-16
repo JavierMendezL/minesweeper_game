@@ -146,14 +146,18 @@ public class Board {
   }
 
   public boolean[] expandCell(int positionToExpand) {
-
-
     boolean[] cellBoard = new boolean[cells.length];
-    if (cells[positionToExpand].getType() == Cell.NO_MINE || cells[positionToExpand].getType() == Cell.MINE || cells[positionToExpand].getState() == Cell.DOUBT || cells[positionToExpand].getState() == Cell.EMPTY) {
+    if (cells[positionToExpand].getState() != Cell.FLAG) {
       cells[positionToExpand].setVisible(true);
       cellBoard[positionToExpand] = true;
-    } else if (cells[positionToExpand].getType() == Cell.EMPTY) {
-      expandCellRecursive(positionToExpand, cellBoard);
+      if (cells[positionToExpand].getValue() == 0) {
+        expandCellRecursive(positionToExpand, cellBoard);
+      }
+    }
+    for (int i = 0; i < cellBoard.length; i++) {
+      if (cellBoard[i]) {
+        cells[i].setVisible(true);
+      }
     }
     return cellBoard;
   }
@@ -203,6 +207,7 @@ public class Board {
         finished = false;
       }
     }
+
     return finished;
   }
 }
