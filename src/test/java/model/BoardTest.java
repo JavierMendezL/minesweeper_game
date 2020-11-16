@@ -162,6 +162,16 @@ public class BoardTest extends TestCase {
     int[] result = board.getCellAroundPosition(4);
     assert Arrays.equals(new int[]{0, 1, 2, 3, 5, 6, 7, 8}, result);
 
+    board.setCols(3);
+    board.setRows(4);
+    int[] result1 = board.getCellAroundPosition(0);
+    assert Arrays.equals(new int[]{-4, -3, -2, -1, 1, 2, 3, 4}, result1);
+
+    board.setCols(3);
+    board.setRows(4);
+    int[] result2 = board.getCellAroundPosition(10);
+    assert Arrays.equals(new int[]{6, 7, 8, 9, 11, 12, 13, 14}, result2);
+
   }
 
   public void testCreatingCustomMineNumber() {
