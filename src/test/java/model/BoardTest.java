@@ -142,6 +142,17 @@ public class BoardTest extends TestCase {
     board.setMinesPosition(new int[]{1, 6, 8, 12, 16, 19, 20, 24});
     int[] results = board.setNumberMinesOnNeighbours();
     assert Arrays.equals(new int[]{2, -1, 3, 1, 1, 2, -1, 4, -1, 1, 2, 3, -1, 3, 2, 2, -1, 2, 3, -1, -1, 2, 1, 2, -1}, results);
+
+    board = new Board(6, 4);
+    board.setMinesPosition(new int[]{0, 3, 5, 10, 12, 15, 18, 21});
+    int[] results1 = board.setNumberMinesOnNeighbours();
+    assert Arrays.equals(new int[]{-1, 2, 2, -1, 2, -1, 3, 2, 2, 3, -1, 2, -1, 3, 3, -1, 2, 3, -1, 2, 1, -1, 2, 1}, results1);
+
+    board = new Board(5, 4);
+    board.setMinesPosition(new int[]{0, 2, 5, 7, 8});
+    int[] results2 = board.setNumberMinesOnNeighbours();
+    assert Arrays.equals(new int[]{-1, 3, -1, 2, 3, -1, 3, -1, -1, 2, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0}, results2);
+
   }
 
 
