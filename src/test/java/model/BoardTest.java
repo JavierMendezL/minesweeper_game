@@ -21,6 +21,16 @@ public class BoardTest extends TestCase {
     int totalCellNumber = board.getTotalCellNumber();
     assertEquals(25, totalCellNumber);
 
+    board.setRows(6);
+    board.setCols(4);
+    int totalCellNumber1 = board.getTotalCellNumber();
+    assertEquals(24, totalCellNumber1);
+
+    board.setRows(7);
+    board.setCols(1);
+    int totalCellNumber2 = board.getTotalCellNumber();
+    assertEquals(7, totalCellNumber2);
+
   }
 
   public void testAssignRowsColsToBoardFails() {
@@ -102,7 +112,6 @@ public class BoardTest extends TestCase {
     board.createMines(10);
     int results = board.getTotalMines();
     assertEquals(10, results);
-
 
     board.createMines(-4);
     results = board.getTotalMines();
@@ -288,4 +297,5 @@ public class BoardTest extends TestCase {
     assert gameIsFinished;
 
   }
+
 }

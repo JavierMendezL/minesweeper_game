@@ -21,6 +21,18 @@ public class RandomMinesGeneratorTest extends TestCase {
 
         expected = RandomMinesGenerator.generate(2, -1, 1);
         assert Arrays.equals(new int[]{-1}, expected);
+
+        expected = RandomMinesGenerator.generate(-1, -1, 1);
+        assert Arrays.equals(new int[]{-1}, expected);
+
+        expected = RandomMinesGenerator.generate(2, -1, -1);
+        assert Arrays.equals(new int[]{-1}, expected);
+
+        expected = RandomMinesGenerator.generate(-1, 1, -1);
+        assert Arrays.equals(new int[]{-1}, expected);
+
+        expected = RandomMinesGenerator.generate(-1, -1, -1);
+        assert Arrays.equals(new int[]{-1}, expected);
     }
 
 }

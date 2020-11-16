@@ -10,6 +10,7 @@ public class RandomMinesGenerator {
         int[] minesPosition;
         try {
             int[] allCells = new int[rows*cols];
+            if(rows<=0 || cols <= 0){return new int[]{-1};}
             List<Integer> integerList = new ArrayList<>();
             for (int i = 0; i < allCells.length; i++) {
                 integerList.add(i);

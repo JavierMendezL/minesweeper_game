@@ -24,7 +24,6 @@ public class BoardController {
     return terminalScanner.readNumberFromTerminal(2);
   }
 
-
 }
 
 

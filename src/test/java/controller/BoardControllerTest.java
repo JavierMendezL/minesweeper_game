@@ -33,10 +33,4 @@ public class BoardControllerTest extends TestCase {
   }
 
 
-
-  /*public void testPerformActionWithController(){
-
-    //boardController.performeAction(2); //PUT QUESTION-MARK on CELL 7X3 (mockScanner)
-  }*/
-
 }
