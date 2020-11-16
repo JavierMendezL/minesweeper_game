@@ -24,6 +24,9 @@ class MockScanner extends BufferedReader {
       calls+=1;
       return "3";
     }
+    if (calls == 1){
+      return  "2";
+    }
     return "-1";
   }
 

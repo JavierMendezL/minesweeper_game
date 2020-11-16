@@ -20,7 +20,7 @@ public class TerminalScanner {
         readValue = scanner.readLine();
         value = Integer.parseInt(readValue);
 
-        if (value <= maxNum && value > 0) {
+        if (value <= maxNum && value >= 0) {
           verified = true;
         }
       } catch (Exception e) {
