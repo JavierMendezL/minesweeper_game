@@ -330,12 +330,18 @@ public class BoardTest extends TestCase {
     board.expandCell(8);
     board.expandCell(0);
     board.expandCell(2);
+    boolean gameIsFinished = board.isGameFinished();
+    assert !gameIsFinished;
     board.expandCell(6);
+    gameIsFinished = board.isGameFinished();
+    assert !gameIsFinished;
+
 
     board.changeState(1,Cell.FLAG);
+
     board.changeState(3,Cell.FLAG);
 
-    boolean gameIsFinished = board.isGameFinished();
+    gameIsFinished = board.isGameFinished();
     assert gameIsFinished;
 
   }

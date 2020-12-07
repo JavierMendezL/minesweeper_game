@@ -22,6 +22,14 @@ public class Board {
   public Board() {
   }
 
+  public int getCols() {
+    return cols;
+  }
+
+  public int getRows() {
+    return rows;
+  }
+
   public Cell[] getCells() {
     return cells;
   }
